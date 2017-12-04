@@ -1,0 +1,21 @@
+{
+  "name": "mrgenis/xml-to-array-schema",
+  "description": "Convert xml document to array",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sergio Flores Genis",
+      "email": "sf.cancun@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MrGenis\\Library\\": "src"
+    }
+  }
+}
