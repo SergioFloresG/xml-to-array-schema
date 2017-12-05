@@ -17,38 +17,43 @@ class XmlToArray
 
     /** @var \DOMDocument */
     protected $document;
-    /** @var \DOMXPath */
+    /** @var \DOMXPath[] */
     protected $domxpath;
+
+    /** @var string */
+    protected $nodekey;
 
     /**
      * XmlToArray constructor.
      *
      * @param string $xml cuerpo del xml
-     * @param string $schema_file
+     * @param string $nodekey
      */
-    private function __construct($xml, $schema_file = null)
+    public function __construct($xml, $nodekey = 'localName')
     {
         $this->document = new \DOMDocument();
+        $this->nodekey = $nodekey;
         $this->document->loadXML($xml);
+        $this->domxpath = [];
 
-        if ($schema_file) {
-            $simplexml = new \DOMDocument();
-            $simplexml->load($schema_file);
-            $this->domxpath = new \DOMXPath($simplexml);
-        }
+
+        // schema location : nodo padre
+        $docElement = $this->document->documentElement;
+        $docXpath = $this->xpath($docElement);
+        $this->domxpath['?'] = $docXpath;
 
     }
 
     /**
-     * @param string $xml xml body
-     * @param string $schema
+     * @param string $xml
+     * @param string $nodekey
      *
      * @return array
      */
-    public static function convert($xml, $schema = null)
+    public static function convert($xml, $nodekey = 'localName')
     {
         /** @var XmlToArray $converter */
-        $converter = new static($xml, $schema);
+        $converter = new static($xml, $nodekey);
         return $converter->toArray();
     }
 
@@ -95,25 +100,27 @@ class XmlToArray
         $result_arr = $this->convertAttributes($element->attributes);
         $result_str = '';
 
+
         foreach ($element->childNodes as $node) {
             if ($node instanceof \DOMElement) {
+                $nodekey = $node->{"{$this->nodekey}"};
 
 
                 // ya se encuentra definido, por lo que se transforma en un array
-                if ($this->domxpath && $this->needMoreThanOne($node->localName)) {
-                    $result_arr[ $node->localName ][] = $this->convertDomElement($node);
+                if ($this->needMoreThanOne($node)) {
+                    $result_arr[ $nodekey ][] = $this->convertDomElement($node);
 
                 }
-                else if (array_key_exists($node->localName, $result_arr)) {
+                else if (array_key_exists($nodekey, $result_arr)) {
                     $keys = array_keys($result_arr);
                     // is assoc
                     if (array_keys($keys) !== $keys) {
-                        $result_arr[ $node->localName ] = [$result_arr[ $node->localName ]];
+                        $result_arr[ $nodekey ] = [$result_arr[ $nodekey ]];
                     }
-                    $result_arr[ $node->localName ][] = $this->convertDomElement($node);
+                    $result_arr[ $nodekey ][] = $this->convertDomElement($node);
                 }
                 else {
-                    $result_arr[ $node->localName ] = $this->convertDomElement($node);
+                    $result_arr[ $nodekey ] = $this->convertDomElement($node);
                 }
                 continue;
 
@@ -138,27 +145,62 @@ class XmlToArray
         else return $result_arr;
     }
 
-    protected function needMoreThanOne($tagname)
+    protected function needMoreThanOne(\DOMElement $node)
     {
+        $tagname = $node->localName;
+        $result = false;
+        if ($domxpath = $this->xpath($node)) {
+            $exp = "//xs:element[@name=\"{$tagname}\"] | //xs:complexType[@name=\"{$tagname}\"]";
+            /** @var \DOMNodeList $elements */
+            $elements = $domxpath->evaluate($exp);
+            if ($elements->length) {
+                $element = $elements->item(0);
+                $min = $element->getAttribute('minOccurs');
+                $max = $element->getAttribute('maxOccurs');
 
-        /** @var \DOMNodeList $elements */
-        $elements = $this->domxpath->evaluate("//xs:element[@name=\"{$tagname}\"]");
-        if ($elements->length) {
-            $element = $elements->item(0);
-            $min = $element->getAttribute('minOccurs');
-            $max = $element->getAttribute('maxOccurs');
-
-            return ($min > 1 || $max > 1 || $max == 'unbounded');
+                $result = ($min > 1 || $max > 1 || $max == 'unbounded');
+            }
         }
+        return $result;
 
-        $elements = $this->domxpath->evaluate("//xs:complexType[@name=\"{$tagname}\"]");
-        if ($elements->length) {
-            $element = $elements->item(0);
-            $min = $element->getAttribute('minOccurs');
-            $max = $element->getAttribute('maxOccurs');
+    }
 
-            return ($min > 1 || $max > 1 || $max == 'unbounded');
+    /**
+     * @param \DOMElement $element
+     *
+     * @return \DOMXPath
+     */
+    private function xpath(\DOMElement $element)
+    {
+        $nsURI = $element->lookupNamespaceUri($element->prefix);
+        try {
+            $hash = md5($nsURI);
+            if (!array_key_exists($hash, $this->domxpath)) {
+                $this->domxpath[ $hash ] = $this->makeXPATH($element);
+            }
+            return $this->domxpath[ $hash ];
+        } catch (\Exception $e) {
+            // nada
+            $this->domxpath[ $hash ] = null;
         }
+        return null;
+    }
 
+    /**
+     * @param \DOMElement $element
+     *
+     * @return \DOMXPath
+     */
+    private function makeXPATH(\DOMElement $element)
+    {
+        $xsiURI = $element->lookupNamespaceUri('xsi');
+        $file = $element->getAttributeNS($xsiURI, 'schemaLocation');
+
+        list($ns, $file) = explode(' ', $file);
+        if (empty($file)) $file = $ns;
+
+        $schemaDOM = new \DOMDocument();
+        $schemaDOM->load($file);
+        return new \DOMXPath($schemaDOM);
     }
 }
