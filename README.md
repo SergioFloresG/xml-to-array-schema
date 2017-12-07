@@ -9,7 +9,7 @@ If it is not possible to detect the scheme, it generates an array of those eleme
 form of an indexed array.
 
 ```bash
-composer require mrgenis/xml-to-array-schem
+composer require mrgenis/xml-to-array-schema
 ```
 
 ## Example
