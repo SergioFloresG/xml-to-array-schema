@@ -26,15 +26,24 @@ class XmlToArray
     /**
      * XmlToArray constructor.
      *
-     * @param string $xml cuerpo del xml
-     * @param string $nodekey
+     * @param \DOMDocument|\SimpleXMLElement|string $xml     string or {@link \DOMDocument} or {@link \SimpleXMLElement}
+     * @param string                                $nodekey key for tag map. <i>localName, tagName, nodeName</i>
      */
     public function __construct($xml, $nodekey = 'localName')
     {
         $this->document = new \DOMDocument();
         $this->nodekey = $nodekey;
-        $this->document->loadXML($xml);
         $this->domxpath = [];
+
+        if ($xml instanceof \DOMDocument) {
+            $this->document = $xml;
+        }
+        else if ($xml instanceof \SimpleXMLElement) {
+            $this->document->loadXML($xml->asXML());
+        }
+        else {
+            $this->document->loadXML($xml);
+        }
 
 
         // schema location : nodo padre
@@ -45,8 +54,8 @@ class XmlToArray
     }
 
     /**
-     * @param string $xml
-     * @param string $nodekey
+     * @param \DOMDocument|\SimpleXMLElement|string $xml     string or {@link \DOMDocument} or {@link \SimpleXMLElement}
+     * @param string                                $nodekey key for tag map. <i>localName, tagName, nodeName</i>
      *
      * @return array
      */
@@ -61,7 +70,7 @@ class XmlToArray
     {
         $root = $this->document->documentElement;
         $result_root = $this->convertAttributes($root->attributes);
-        $result_root['nodeName'] = $root->localName;
+        $result_root['nodeName'] = $root->{"{$this->nodekey}"};
 
         $xpath_root = new \DOMXPath($this->document);
         foreach ($xpath_root->query('namespace::*', $root) as $item) {
