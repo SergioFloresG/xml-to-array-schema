@@ -42,7 +42,19 @@ class XmlToArray
             $this->document->loadXML($xml->asXML());
         }
         else {
-            $this->document->loadXML($xml);
+            try {
+                $this->document->loadXML($xml);
+
+            } catch (\Exception $e) {
+
+                if (mb_strpos($e->getMessage(), 'Namespace') !== false) {
+                    $subxml = preg_replace("(\/?>)", " xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' $0", $xml, 1);
+                    $subxml = simplexml_load_string($subxml);
+                    $this->document->loadXML($subxml->saveXML());
+                }
+
+
+            }
         }
 
 
@@ -185,7 +197,7 @@ class XmlToArray
         try {
             $hash = md5($nsURI);
             if (!array_key_exists($hash, $this->domxpath)) {
-                $this->domxpath[ $hash ] = $this->makeXPATH($element);
+                $this->domxpath[ $hash ] = $this->makeXPATH($hash, $element);
             }
             return $this->domxpath[ $hash ];
         } catch (\Exception $e) {
@@ -200,7 +212,7 @@ class XmlToArray
      *
      * @return \DOMXPath
      */
-    private function makeXPATH(\DOMElement $element)
+    private function makeXPATH($hash, \DOMElement $element)
     {
         $xsiURI = $element->lookupNamespaceUri('xsi');
         $file = $element->getAttributeNS($xsiURI, 'schemaLocation');
