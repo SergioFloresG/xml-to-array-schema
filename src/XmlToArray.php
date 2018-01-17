@@ -60,7 +60,7 @@ class XmlToArray
 
         // schema location : nodo padre
         $docElement = $this->document->documentElement;
-        $docXpath = $this->xpath($docElement);
+        $docXpath = $this->__xpath($docElement);
         $this->domxpath['?'] = $docXpath;
 
     }
@@ -170,7 +170,7 @@ class XmlToArray
     {
         $tagname = $node->localName;
         $result = false;
-        if ($domxpath = $this->xpath($node)) {
+        if ($domxpath = $this->__xpath($node)) {
             $exp = "//xs:element[@name=\"{$tagname}\"] | //xs:complexType[@name=\"{$tagname}\"]";
             /** @var \DOMNodeList $elements */
             $elements = $domxpath->evaluate($exp);
@@ -191,37 +191,49 @@ class XmlToArray
      *
      * @return \DOMXPath
      */
-    private function xpath(\DOMElement $element)
+    private function __xpath(\DOMElement $element)
     {
+        $cache_path = realpath(__DIR__) . DIRECTORY_SEPARATOR . 'cache';
+        if (!file_exists($cache_path)) mkdir($cache_path, 0777, true);
+
         $nsURI = $element->lookupNamespaceUri($element->prefix);
+        $hash = md5($nsURI);
+        $cache_file = $cache_path . DIRECTORY_SEPARATOR . $hash;
+        unset($cache_path);
+
         try {
-            $hash = md5($nsURI);
-            if (!array_key_exists($hash, $this->domxpath)) {
-                $this->domxpath[ $hash ] = $this->makeXPATH($hash, $element);
+
+            if (array_key_exists($hash, $this->domxpath)) {
+                $XPathSchema = $this->domxpath[ $hash ];
             }
-            return $this->domxpath[ $hash ];
-        } catch (\Exception $e) {
-            // nada
+            else if (file_exists($cache_file)) {
+                $DomSchema = new \DOMDocument();
+                $DomSchema->load($cache_file);
+                $XPathSchema = new \DOMXPath($DomSchema);
+                $this->domxpath[ $hash ] = $XPathSchema;
+            }
+            else {
+                $xsiURI = $element->lookupNamespaceUri('xsi');
+                $nsDefinitions = $element->getAttributeNS($xsiURI, 'schemaLocation');
+                if(empty($nsDefinitions)) {
+                    $nsDefinitions = $this->document->documentElement->getAttributeNS($xsiURI, 'schemaLocation');
+                }
+                $nsDefinitions = explode(' ', trim(preg_replace('/\s+/', ' ', $nsDefinitions)));
+                $idx = array_search($nsURI, $nsDefinitions);
+                $schema = $nsDefinitions[ $idx + 1 ];
+
+                $DomSchema = new \DOMDocument();
+                $DomSchema->preserveWhiteSpace = false;
+                $DomSchema->formatOutput = false;
+                $DomSchema->load($schema);
+                $DomSchema->save($cache_file);
+                $XPathSchema = new \DOMXPath($DomSchema);
+                $this->domxpath[ $hash ] = $XPathSchema;
+            }
+            return $XPathSchema;
+        } catch (\Throwable $th) {
             $this->domxpath[ $hash ] = null;
         }
-        return null;
     }
 
-    /**
-     * @param \DOMElement $element
-     *
-     * @return \DOMXPath
-     */
-    private function makeXPATH($hash, \DOMElement $element)
-    {
-        $xsiURI = $element->lookupNamespaceUri('xsi');
-        $file = $element->getAttributeNS($xsiURI, 'schemaLocation');
-
-        list($ns, $file) = explode(' ', $file);
-        if (empty($file)) $file = $ns;
-
-        $schemaDOM = new \DOMDocument();
-        $schemaDOM->load($file);
-        return new \DOMXPath($schemaDOM);
-    }
 }

@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd"
+                  Version="3.3" Folio="09069" Fecha="2017-12-05T02:59:46"
+                  Sello="YQai1SwqNqUXsk+6KJw+MlXkyDYbSUFC/slWpNdjSPt8g=="
+                  FormaPago="99" NoCertificado="00001048"
+                  Certificado="MIIGQjCCBCqgAwIBAgIUMDAwTwT1aOKqXhYTb5HDloargvgwI90n8w=="
+                  SubTotal="166813.62" Moneda="MXN" Total="193503.80" TipoDeComprobante="I" MetodoPago="PPD"
+                  LugarExpedicion="11950">
+    <cfdi:Emisor Rfc="XEXX01010100" Nombre="CASA PERU" RegimenFiscal="601"/>
+    <cfdi:Receptor Rfc="XAXX01010100" Nombre="EQUIPOS ESPECIALIZADOS" UsoCFDI="G03"/>
+    <cfdi:Conceptos>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="628.57"
+                       Importe="628.57">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="628.57" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="100.571200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1391.98"
+                       Importe="1391.98">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1391.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="222.716800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1391.98"
+                       Importe="1391.98">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1391.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="222.716800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1391.98"
+                       Importe="1391.98">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1391.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="222.716800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1391.98"
+                       Importe="1391.98">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1391.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="222.716800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1391.98"
+                       Importe="1391.98">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1391.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="222.716800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1391.98"
+                       Importe="1391.98">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1391.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="222.716800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="742.01"
+                       Importe="742.01">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="742.01" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="118.721600"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.85"
+                       Importe="1165.85">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.85" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.536000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="3462.65"
+                       Importe="3462.65">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="3462.65" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="554.024000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2245.92"
+                       Importe="2245.92">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2245.92" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="359.347200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2245.92"
+                       Importe="2245.92">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2245.92" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="359.347200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2245.92"
+                       Importe="2245.92">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2245.92" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="359.347200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2245.92"
+                       Importe="2245.92">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2245.92" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="359.347200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2245.92"
+                       Importe="2245.92">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2245.92" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="359.347200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2245.92"
+                       Importe="2245.92">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2245.92" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="359.347200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2245.92"
+                       Importe="2245.92">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2245.92" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="359.347200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2245.92"
+                       Importe="2245.92">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2245.92" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="359.347200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2245.92"
+                       Importe="2245.92">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2245.92" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="359.347200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1394.27"
+                       Importe="1394.27">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1394.27" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="223.083200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1307.07"
+                       Importe="1307.07">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1307.07" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="209.131200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="552.93"
+                       Importe="552.93">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="552.93" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="88.468800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1165.84"
+                       Importe="1165.84">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1165.84" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="186.534400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="7905.18"
+                       Importe="7905.18">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="7905.18" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="1264.828800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="4768.88"
+                       Importe="4768.88">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="4768.88" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="763.020800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="4219.56"
+                       Importe="4219.56">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="4219.56" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="675.129600"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="6015.87"
+                       Importe="6015.87">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="6015.87" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="962.539200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="3606.57"
+                       Importe="3606.57">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="3606.57" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="577.051200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2531.74"
+                       Importe="2531.74">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2531.74" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="405.078400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="7482.22"
+                       Importe="7482.22">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="7482.22" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="1197.155200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="2943.88"
+                       Importe="2943.88">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="2943.88" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="471.020800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="1766.33"
+                       Importe="1766.33">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="1766.33" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="282.612800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="16386.07"
+                       Importe="16386.07">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="16386.07" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="2621.771200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ClaveProdServ="81112400" Cantidad="1" ClaveUnidad="E48"
+                       Descripcion="Renta Correspondiente al periodo: 12/01/17-12/31/17" ValorUnitario="4915.82"
+                       Importe="4915.82">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="4915.82" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="786.531200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+    </cfdi:Conceptos>
+    <cfdi:Impuestos TotalImpuestosTrasladados="26690.18">
+        <cfdi:Traslados>
+            <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="26690.179200"/>
+        </cfdi:Traslados>
+    </cfdi:Impuestos>
+    <cfdi:Complemento>
+        <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital"
+                                 xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd"
+                                 Version="1.1" UUID="91509bdb-dcd3-4ea0-b0f5-843471b89e78" RfcProvCertif="D2A033402MZ2"
+                                 FechaTimbrado="2017-12-05T03:02:17"
+                                 SelloCFD="YQai1SwqNqU/E0xGAbQny8Wu9A+xZxWPU6DDYhy7cNJEh+LoslWpNdjSPt8g=="
+                                 NoCertificadoSAT="00001000000404614920"
+                                 SelloSAT="YR3dfveqOS5Q0RWDMEXQFOAQFCn258Y3W7RRx0te/g=="/>
+    </cfdi:Complemento>
+</cfdi:Comprobante>

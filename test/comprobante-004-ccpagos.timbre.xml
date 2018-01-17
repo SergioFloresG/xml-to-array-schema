@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante
+        xmlns:cfdi="http://www.sat.gob.mx/cfd/3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pago10="http://www.sat.gob.mx/Pagos"
+        xsi:schemaLocation="
+          http://www.sat.gob.mx/cfd/3
+            http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd
+          http://www.sat.gob.mx/Pagos
+            http://www.sat.gob.mx/sitio_internet/cfd/Pagos/Pagos10.xsd"
+        Version="3.3" Folio="56647" Fecha="2018-01-13T02:37:52"
+        Sello="JLe5VQOCE0vUl9TxsDT+8mCROAsINw=="
+        NoCertificado="10000948"
+        Certificado="MIIGQ+t+6hpIlpZSf9MiwZpNk7gNnhYEowE8IgboG2CIaoTb5HDloargvgwI90n8w=="
+        SubTotal="0" Moneda="XXX" Total="0" TipoDeComprobante="P" LugarExpedicion="11950">
+    <cfdi:Emisor Rfc="XEXX01010100" Nombre="CASA PERU" RegimenFiscal="601"/>
+    <cfdi:Receptor Rfc="XAXX01010100" Nombre="FARMACIA OAXACA" UsoCFDI="P01"/>
+    <cfdi:Conceptos>
+        <cfdi:Concepto ClaveProdServ="84111506" Cantidad="1" ClaveUnidad="ACT" Descripcion="Pago" ValorUnitario="0"
+                       Importe="0"/>
+    </cfdi:Conceptos>
+    <cfdi:Complemento>
+        <pago10:Pagos Version="1.0">
+            <pago10:Pago FechaPago="2017-01-10T01:00:00" FormaDePagoP="03" MonedaP="MXN" Monto="2601227.96"
+                         NumOperacion="31683" NomBancoOrdExt="BBVA BANCOMER" RfcEmisorCtaBen="BNM840515VB1"
+                         CtaBeneficiario="002180002349050077">
+                <pago10:DoctoRelacionado IdDocumento="2e5a3421-e92b-47eb-8275-02e89e495f98" Folio="49294" MonedaDR="MXN"
+                                         MetodoDePagoDR="PPD" NumParcialidad="1" ImpSaldoAnt="431420.80"
+                                         ImpPagado="431420.80" ImpSaldoInsoluto="0.00"/>
+                <pago10:DoctoRelacionado IdDocumento="1c5c79cf-c925-4765-a416-d6ff3853c922" Folio="49295" MonedaDR="MXN"
+                                         MetodoDePagoDR="PPD" NumParcialidad="1" ImpSaldoAnt="427656.43"
+                                         ImpPagado="427656.43" ImpSaldoInsoluto="0.00"/>
+                <pago10:DoctoRelacionado IdDocumento="89ccad8d-d162-4ec8-abfc-16a14079ca13" Folio="49296" MonedaDR="MXN"
+                                         MetodoDePagoDR="PPD" NumParcialidad="1" ImpSaldoAnt="337470.84"
+                                         ImpPagado="337470.38" ImpSaldoInsoluto="0.46"/>
+                <pago10:DoctoRelacionado IdDocumento="65194706-7263-4ce1-bfb2-ed8dee50bccc" Folio="49297" MonedaDR="MXN"
+                                         MetodoDePagoDR="PPD" NumParcialidad="1" ImpSaldoAnt="10716.14"
+                                         ImpPagado="10716.14" ImpSaldoInsoluto="0.00"/>
+                <pago10:DoctoRelacionado IdDocumento="1fc16080-2499-4653-bee2-e8cafda8edb8" Folio="49298" MonedaDR="MXN"
+                                         MetodoDePagoDR="PPD" NumParcialidad="1" ImpSaldoAnt="578333.28"
+                                         ImpPagado="578333.28" ImpSaldoInsoluto="0.00"/>
+                <pago10:DoctoRelacionado IdDocumento="9efd3716-4fd7-438a-88d2-3ee3c2ec32a5" Folio="49299" MonedaDR="MXN"
+                                         MetodoDePagoDR="PPD" NumParcialidad="1" ImpSaldoAnt="67515.93"
+                                         ImpPagado="67515.93" ImpSaldoInsoluto="0.00"/>
+                <pago10:DoctoRelacionado IdDocumento="c0d4d3d1-61c5-4c8d-a022-3b1b338af084" Folio="49300" MonedaDR="MXN"
+                                         MetodoDePagoDR="PPD" NumParcialidad="1" ImpSaldoAnt="748115.00"
+                                         ImpPagado="748115.00" ImpSaldoInsoluto="0.00"/>
+            </pago10:Pago>
+        </pago10:Pagos>
+        <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital"
+                                 xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd"
+                                 Version="1.1" UUID="cab3f72f-64fa-4d14-b578-7b6a0e911b07" RfcProvCertif="D45031012LM2"
+                                 FechaTimbrado="2018-01-13T02:40:22"
+                                 SelloCFD="JLvUl9TxsDTIzEpveapz5dTKJMN4+T"
+                                 NoCertificadoSAT="1014920"
+                                 SelloSAT="LyNNHk6uKI0V39K9AQ94JpO0HFJ8r2y6H3w=="/>
+    </cfdi:Complemento>
+</cfdi:Comprobante>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:pago10="http://www.sat.gob.mx/Pagos"
+                  xsi:schemaLocation="
+                    http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd
+                    http://www.sat.gob.mx/Pagos http://www.sat.gob.mx/sitio_internet/cfd/Pagos/Pagos10.xsd"
+                  Version="3.3" Folio="56717" Fecha="2018-01-16T10:22:32"
+                  Sello="hkAp5yTMow4UI63Ingui+iovdlAUaxS5wM2Cglgs2kiuUmTXq42uG0LYyWVematvEbxw=="
+                  NoCertificado="1003948"
+                  Certificado="MI+tPq/IB+6htulEE3Eg9hD2Dr667ATp66cHTwT1aOKqXhYTb5HDloargvgwI90n8w=="
+                  SubTotal="0" Moneda="XXX" Total="0" TipoDeComprobante="P" LugarExpedicion="11950">
+    <cfdi:Emisor Rfc="XEXX01010100" Nombre="CASA PERU" RegimenFiscal="601"/>
+    <cfdi:Receptor Rfc="XAXX01010100" Nombre="GAS EXPRESS" UsoCFDI="P01"/>
+    <cfdi:Conceptos>
+        <cfdi:Concepto ClaveProdServ="84111506" Cantidad="1" ClaveUnidad="ACT" Descripcion="Pago" ValorUnitario="0"
+                       Importe="0"/>
+    </cfdi:Conceptos>
+    <cfdi:Complemento>
+        <pago10:Pagos Version="1.0">
+            <pago10:Pago FechaPago="2018-01-12T01:00:00" FormaDePagoP="03" MonedaP="MXN" Monto="40522.41"
+                         NumOperacion="31717" NomBancoOrdExt="BANAMEX" RfcEmisorCtaBen="BNM840515VB1"
+                         CtaBeneficiario="002180002349050077">
+                <pago10:DoctoRelacionado IdDocumento="3526814d-38a0-45e0-90cd-6e3648bf1afe" Folio="54818" MonedaDR="MXN"
+                                         MetodoDePagoDR="PPD" NumParcialidad="1" ImpSaldoAnt="40522.41"
+                                         ImpPagado="40522.41" ImpSaldoInsoluto="0.00"/>
+            </pago10:Pago>
+        </pago10:Pagos>
+        <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital"
+                                 xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd"
+                                 Version="1.1" UUID="cb9368f7-0cc8-45c9-bb29-88f2d2d7bab1" RfcProvCertif="DIA031002LZ2"
+                                 FechaTimbrado="2018-01-16T10:25:03"
+                                 SelloCFD="hkAp5yTMow4UKKG7q9Ihh9zpn0UWPy+/WEC7wElgM26INqscC2guVySFs6Aqi/IaR5L2xhy0XzK3ZEeutYTNRTzwLIa3RXY7foRf4gtVQOZdbigs42bPHWhJJ2mxJJbgQDufnYumEtzx7RsSmHqHvd1v9QSxAKdXzteoqG11FyWifNO9eAyypdx0jigYJDHS3mbpptW6drqSeS6MykvO9lwnOKanhrkETU3OvxdRb1SlUuOAG1Re+63Ingui+iovdlAUaxS5wM2Cglgs2kiuUmTXq42uG0LYyWVe/T6tthQt/JyvkWXXnEglTjzelwqsePmAXSqol53pL1matvEbxw=="
+                                 NoCertificadoSAT="00001000000404614920"
+                                 SelloSAT="lATM4l1BFHewKpDQgyFOJLGFoSmjq3Fp3kJ1+/o1FBJHYf4F6xXrZSkMUDjMNedE0zcM9/KVncD4PxSW/F8aqdf3KGU5iil2Nd0+0GqkA0P4YTwxXK0Z7oiUg5EFFAAOG7arU/g7j7/Ix8gZpjYcQb8YXaAVqj7+mfdfZG0wp4Xjgy5V/k1M9b0Yin+EEatQ/92VdIZ7xyZt9Ib4EGVQr0IwYkqdTce6IoZZBSuJTHw9iXmeQLGsaBL9AWUhmm+ATDWR/QLs65D7PRXQSEOKdEsQSNr2f2JLPVbhUVszWveMkvZNLixGQKg0JVKJqZ4vFgdYoTLRZa6TIvnW8r8lig=="/>
+    </cfdi:Complemento>
+    <cfdi:Addenda>
+        <dvz:diverza xmlns:dvz="http://www.diverza.com/ns/addenda/diverza/11"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://www.diverza.com/ns/addenda/diverza/11 http://www.diverza.com/schema/xsd/addenda_diverza_v1.1.xsd"
+                     version="1.1">
+            <dvz:emisor>
+                <dvz:domicilioFiscalE calle="AV. PASEO DE LA REFORMA" numero="2620" colonia="LOMAS ALTAS"
+                                      ciudad="CIUDAD DE MEXICO" municipio="MIGUEL HIDALGO" estado="CDMX" pais="MEX"
+                                      codigoPostal="11950"/>
+            </dvz:emisor>
+            <dvz:receptor>
+                <dvz:domicilioFiscalR calle="CALLE VERGEL SN" colonia="CELAYA" ciudad="CELAYA" estado="GUA"
+                                      pais="MEXICO" codigoPostal="38110"/>
+            </dvz:receptor>
+        </dvz:diverza>
+        <AddendaBuzonFiscal AddendaBuzonFiscal="2.0">
+            <TipoDocumento descripcion="COMPLEMENTO DE PAGOS" nombreCorto="CP"/>
+            <Extra atributo="ilFile" valor="4010220180115234647399847555VA9W93LW5D-ILcomplemento-20"
+                   nombreBancoNacional="Banamex"/>
+        </AddendaBuzonFiscal>
+    </cfdi:Addenda>
+</cfdi:Comprobante>
