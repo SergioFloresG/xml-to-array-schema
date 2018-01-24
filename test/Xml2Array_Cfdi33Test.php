@@ -23,7 +23,8 @@ class Xml2Array_Cfdi33Test extends PHPUnit_Framework_TestCase
         $content = file_get_contents($file);
         $array = \MrGenis\Library\XmlToArray::convert($content);
         $this->assertNotNull($array, 'La conversion no retorno un arreglo');
-        //$this->assertCount(90, count($array['Conceptos']['Concepto']), 'No se encontraron los 90 conceptos');
+        $this->assertNotEmpty($array['Complemento'][0]['Pagos'], 'No existe el complemento de Pagos');
+        $this->assertCount(1, $array['Complemento'][0]['Pagos']['Pago'], "Se espera un elemento de complemento de pago");
     }
 
     public function test004()
@@ -32,6 +33,7 @@ class Xml2Array_Cfdi33Test extends PHPUnit_Framework_TestCase
         $content = file_get_contents($file);
         $array = \MrGenis\Library\XmlToArray::convert($content);
         $this->assertNotNull($array, 'La conversion no retorno un arreglo');
-        //$this->assertCount(90, count($array['Conceptos']['Concepto']), 'No se encontraron los 90 conceptos');
+        $this->assertNotEmpty($array['Complemento'][0]['Pagos'], 'No existe el complemento de Pagos');
+        $this->assertCount(1, $array['Complemento'][0]['Pagos']['Pago'], "Se espera un elemento de complemento de pago");
     }
 }
