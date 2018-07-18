@@ -133,11 +133,10 @@ class XmlToArray
 
                 }
                 else if (array_key_exists($nodekey, $result_arr)) {
-                    $keys = array_keys($result_arr);
-                    // is assoc
-                    if (array_keys($keys) !== $keys) {
+                    if ($this->isAssoc($result_arr[$nodekey])) {
                         $result_arr[ $nodekey ] = [$result_arr[ $nodekey ]];
                     }
+
                     $result_arr[ $nodekey ][] = $this->convertDomElement($node);
                 }
                 else {
@@ -183,6 +182,12 @@ class XmlToArray
             }
         }
         return $result;
+
+    }
+
+    protected function isAssoc(array $arr) {
+        if([] === $arr) return false;
+        return array_keys($arr) !== range(0, count($arr) -1);
 
     }
 
