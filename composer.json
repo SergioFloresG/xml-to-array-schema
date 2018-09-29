@@ -21,6 +21,8 @@
     "php": ">=7.0",
     "ext-xmlwriter": "*",
     "ext-xmlreader": "*",
+    "ext-simplexml": "*",
+    "ext-mbstring": "*",
     "ext-dom": "*",
     "lib-libxml": ">=2.6.20"
   },

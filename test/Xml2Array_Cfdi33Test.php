@@ -12,7 +12,7 @@ class Xml2Array_Cfdi33Test extends PHPUnit_Framework_TestCase
     {
         $file = test_path('comprobante-001.timbre.xml');
         $content = file_get_contents($file);
-        $array = \MrGenis\Library\XmlToArray::convert($content);
+        $array = \MrGenis\Library\XmlToArray2::convert($content);
         $this->assertNotNull($array, 'La conversion no retorno un arreglo');
         $this->assertCount(90, $array['Conceptos']['Concepto'], 'No se encontraron los 90 conceptos');
     }
@@ -35,5 +35,12 @@ class Xml2Array_Cfdi33Test extends PHPUnit_Framework_TestCase
         $this->assertNotNull($array, 'La conversion no retorno un arreglo');
         $this->assertNotEmpty($array['Complemento'][0]['Pagos'], 'No existe el complemento de Pagos');
         $this->assertCount(1, $array['Complemento'][0]['Pagos']['Pago'], "Se espera un elemento de complemento de pago");
+    }
+
+    public function test005() {
+        $file = test_path('xml-005-schema-innode.xml');
+        $content = file_get_contents($file);
+        $array = \MrGenis\Library\XmlToArray2::convert($content);
+        $this->assertNotNull($array, 'La conversion no retorno un arreglo');
     }
 }
