@@ -1,39 +1,30 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Sergio Flores Genis
- * Date: 2017-11-14T13:44
+ * User: SFGenis
+ * Date: 28/09/2018
+ * Time: 17:33
  */
 
 namespace MrGenis\Library;
 
-/**
- * Class XmlToArray
- *
- * @package MrGenis\Library
- */
-class XmlToArray
+
+use MrGenis\Library\Contracts\ToArray;
+
+class XmlToArray implements ToArray
 {
 
     /** @var \DOMDocument */
     protected $document;
-    /** @var \DOMXPath[] */
-    protected $domxpath;
-
+    /** @var SchemasManager */
+    protected $schemas;
     /** @var string */
     protected $nodekey;
 
-    /**
-     * XmlToArray constructor.
-     *
-     * @param \DOMDocument|\SimpleXMLElement|string $xml     string or {@link \DOMDocument} or {@link \SimpleXMLElement}
-     * @param string                                $nodekey key for tag map. <i>localName, tagName, nodeName</i>
-     */
     public function __construct($xml, $nodekey = 'localName')
     {
         $this->document = new \DOMDocument();
         $this->nodekey = $nodekey;
-        $this->domxpath = [];
 
         if ($xml instanceof \DOMDocument) {
             $this->document = $xml;
@@ -45,7 +36,8 @@ class XmlToArray
             try {
                 $this->document->loadXML($xml);
 
-            } catch (\Exception $e) {
+            }
+            catch (\Exception $e) {
 
                 if (mb_strpos($e->getMessage(), 'Namespace') !== false) {
                     $subxml = preg_replace("(\/?>)", " xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' $0", $xml, 1);
@@ -57,16 +49,11 @@ class XmlToArray
             }
         }
 
-
-        // schema location : nodo padre
-        $docElement = $this->document->documentElement;
-        $docXpath = $this->__xpath($docElement);
-        $this->domxpath['?'] = $docXpath;
-
+        $this->schemas = new SchemasManager($this->document);
     }
 
     /**
-     * @param \DOMDocument|\SimpleXMLElement|string $xml     string or {@link \DOMDocument} or {@link \SimpleXMLElement}
+     * @param \DOMDocument|\SimpleXMLElement|string $xml string or {@link \DOMDocument} or {@link \SimpleXMLElement}
      * @param string                                $nodekey key for tag map. <i>localName, tagName, nodeName</i>
      *
      * @return array
@@ -78,7 +65,7 @@ class XmlToArray
         return $converter->toArray();
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         $root = $this->document->documentElement;
         $result_root = $this->convertAttributes($root->attributes);
@@ -87,7 +74,7 @@ class XmlToArray
         $xpath_root = new \DOMXPath($this->document);
         foreach ($xpath_root->query('namespace::*', $root) as $item) {
             /** @var \DOMNode $item */
-            $result_root['namespaceURI'][ $item->nodeName ] = $item->nodeValue;
+            $result_root['namespaceURI'][$item->nodeName] = $item->nodeValue;
         }
 
         $result = [];
@@ -98,22 +85,6 @@ class XmlToArray
 
 
         return array_merge($result, ['_root' => $result_root]);
-    }
-
-    protected function convertAttributes(\DOMNamedNodeMap $nodeMap)
-    {
-        if ($nodeMap->length === 0) {
-            return [];
-        }
-
-        $result = [];
-
-        /** @var \DOMAttr $item */
-        foreach ($nodeMap as $item) {
-            $result[ $item->nodeName ] = $item->value;
-        }
-
-        return ['_attributes' => $result];
     }
 
     protected function convertDomElement(\DOMElement $element)
@@ -129,18 +100,18 @@ class XmlToArray
 
                 // ya se encuentra definido, por lo que se transforma en un array
                 if ($this->needMoreThanOne($node)) {
-                    $result_arr[ $nodekey ][] = $this->convertDomElement($node);
+                    $result_arr[$nodekey][] = $this->convertDomElement($node);
 
                 }
                 else if (array_key_exists($nodekey, $result_arr)) {
                     if ($this->isAssoc($result_arr[$nodekey])) {
-                        $result_arr[ $nodekey ] = [$result_arr[ $nodekey ]];
+                        $result_arr[$nodekey] = [$result_arr[$nodekey]];
                     }
 
-                    $result_arr[ $nodekey ][] = $this->convertDomElement($node);
+                    $result_arr[$nodekey][] = $this->convertDomElement($node);
                 }
                 else {
-                    $result_arr[ $nodekey ] = $this->convertDomElement($node);
+                    $result_arr[$nodekey] = $this->convertDomElement($node);
                 }
                 continue;
 
@@ -165,11 +136,38 @@ class XmlToArray
         else return $result_arr;
     }
 
+    /**
+     * @param \DOMNamedNodeMap $nodeMap
+     *
+     * @return array <code>[ _attributes => [ $key => $value ] ]</code>.
+     */
+    protected function convertAttributes(\DOMNamedNodeMap $nodeMap)
+    {
+        if ($nodeMap->length === 0) {
+            return [];
+        }
+
+        $result = [];
+
+        /** @var \DOMAttr $item */
+        foreach ($nodeMap as $item) {
+            $result[$item->nodeName] = $item->value;
+        }
+
+        return ['_attributes' => $result];
+    }
+
+
+    /**
+     * @param \DOMElement $node
+     *
+     * @return bool
+     */
     protected function needMoreThanOne(\DOMElement $node)
     {
         $tagname = $node->localName;
         $result = false;
-        if ($domxpath = $this->__xpath($node)) {
+        if ($domxpath = $this->schemas->getXPath($node)) {
             $exp = "//xs:element[@name=\"{$tagname}\"] | //xs:complexType[@name=\"{$tagname}\"]";
             /** @var \DOMNodeList $elements */
             $elements = $domxpath->evaluate($exp);
@@ -182,63 +180,16 @@ class XmlToArray
             }
         }
         return $result;
-
-    }
-
-    protected function isAssoc(array $arr) {
-        if([] === $arr) return false;
-        return array_keys($arr) !== range(0, count($arr) -1);
-
     }
 
     /**
-     * @param \DOMElement $element
+     * @param array $arr
      *
-     * @return \DOMXPath
+     * @return bool <strong>TRUE</strong> cuando el arreglo es asociativo (clave => valor)
      */
-    private function __xpath(\DOMElement $element)
+    protected function isAssoc(array $arr)
     {
-        $cache_path = realpath(__DIR__) . DIRECTORY_SEPARATOR . 'cache';
-        if (!file_exists($cache_path)) mkdir($cache_path, 0777, true);
-
-        $nsURI = $element->lookupNamespaceUri($element->prefix);
-        $hash = md5($nsURI);
-        $cache_file = $cache_path . DIRECTORY_SEPARATOR . $hash;
-        unset($cache_path);
-
-        try {
-
-            if (array_key_exists($hash, $this->domxpath)) {
-                $XPathSchema = $this->domxpath[ $hash ];
-            }
-            else if (file_exists($cache_file)) {
-                $DomSchema = new \DOMDocument();
-                $DomSchema->load($cache_file);
-                $XPathSchema = new \DOMXPath($DomSchema);
-                $this->domxpath[ $hash ] = $XPathSchema;
-            }
-            else {
-                $xsiURI = $element->lookupNamespaceUri('xsi');
-                $nsDefinitions = $element->getAttributeNS($xsiURI, 'schemaLocation');
-                if(empty($nsDefinitions)) {
-                    $nsDefinitions = $this->document->documentElement->getAttributeNS($xsiURI, 'schemaLocation');
-                }
-                $nsDefinitions = explode(' ', trim(preg_replace('/\s+/', ' ', $nsDefinitions)));
-                $idx = array_search($nsURI, $nsDefinitions);
-                $schema = $nsDefinitions[ $idx + 1 ];
-
-                $DomSchema = new \DOMDocument();
-                $DomSchema->preserveWhiteSpace = false;
-                $DomSchema->formatOutput = false;
-                $DomSchema->load($schema);
-                $DomSchema->save($cache_file);
-                $XPathSchema = new \DOMXPath($DomSchema);
-                $this->domxpath[ $hash ] = $XPathSchema;
-            }
-            return $XPathSchema;
-        } catch (\Throwable $th) {
-            $this->domxpath[ $hash ] = null;
-        }
+        if ([] === $arr) return false;
+        return array_keys($arr) !== range(0, count($arr) - 1);
     }
-
 }

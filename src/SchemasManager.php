@@ -12,6 +12,8 @@ use MrGenis\Library\Contracts\SchemasManager as IntSchemasManager;
 
 class SchemasManager implements IntSchemasManager
 {
+    /** @var \DOMXPath  */
+    protected $domxpath;
     /** @var string */
     private $schemas_directory;
     /** @var array (string => \DOMXpath) */
@@ -19,9 +21,11 @@ class SchemasManager implements IntSchemasManager
 
     public function __construct(\DOMDocument $document)
     {
-        $this->schemas_directory = realpath(__DIR__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'cache';
+        $path = realpath(__DIR__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'cache';
+        if(!file_exists($path)) mkdir($path,0777, true);
+        $this->schemas_directory = realpath($path);
         $this->domxpath = new \DOMXPath($document);
-        $this->schemas = [];
+        $this->schemas = [$this->hashNs(null) => null];
 
         $this->addSchemasFromElement($document->documentElement);
     }
@@ -83,10 +87,13 @@ class SchemasManager implements IntSchemasManager
         $schemas = explode(' ', trim(preg_replace('/\s+/', ' ', $schemas)));
 
         $schemas_map = [];
-        for ($i = 0;
-             $i < count($schemas);
-             $i += 2) {
-            $schemas_map[$schemas[$i]] = $schemas[$i + 1];
+        $schemas_count = count($schemas);
+        if ($schemas_count > 1 && $schemas_count % 2 === 0) {
+            for ($i = 0;
+                 $i < count($schemas);
+                 $i += 2) {
+                $schemas_map[$schemas[$i]] = $schemas[$i + 1];
+            }
         }
 
         return $schemas_map;
@@ -119,13 +126,18 @@ class SchemasManager implements IntSchemasManager
             $this->schemas[$hash] = $XPathSchema;
         }
         else {
-            $DomSchema = new \DOMDocument();
-            $DomSchema->preserveWhiteSpace = false;
-            $DomSchema->formatOutput = false;
-            $DomSchema->load($schema);
-            $DomSchema->save($cache_file);
-            $XPathSchema = new \DOMXPath($DomSchema);
-            $this->schemas[$hash] = $XPathSchema;
+            try {
+                $DomSchema = new \DOMDocument();
+                $DomSchema->preserveWhiteSpace = false;
+                $DomSchema->formatOutput = false;
+                $DomSchema->load($schema);
+                $DomSchema->save($cache_file);
+                $XPathSchema = new \DOMXPath($DomSchema);
+                $this->schemas[$hash] = $XPathSchema;
+            }
+            catch (\Exception $e) {
+                $this->schemas[$hash] = null;
+            }
         }
     }
 
