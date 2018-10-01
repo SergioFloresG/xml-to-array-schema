@@ -113,23 +113,18 @@ class XmlToArray implements ToArray
                 else {
                     $result_arr[$nodekey] = $this->convertDomElement($node);
                 }
-                continue;
-
+                unset($nodekey);
             }
             else if ($node instanceof \DOMCdataSection) {
                 $result_arr['_cdata'] = $node->data;
-                continue;
-
             }
             else if ($node instanceof \DOMText) {
                 $result_str .= $node->textContent;
-                continue;
-
             }
             else if ($node instanceof \DOMComment) {
                 // Comments are ignored
-                continue;
             }
+
         }
 
         if (empty($result_arr)) return $result_str;

@@ -43,7 +43,7 @@ class SchemasManager implements IntSchemasManager
         if (!array_key_exists($hash, $this->schemas)) {
             $this->addSchemasFromElement($element);
         }
-        return $this->schemas[$hash];
+        return $this->schemas[$hash] ?? null;
     }
 
 
