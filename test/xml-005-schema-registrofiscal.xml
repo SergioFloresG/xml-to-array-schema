@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd"
+                  LugarExpedicion="08400" MetodoPago="PUE" TipoDeComprobante="I" Total="250.00" Moneda="MXN"
+                  Certificado="MIIGVzCCBDOXRvMS5QLDIYWUQYsAXm2LbLSgXN+upgZBbpuMTbxJ8C6f51ROpMxpFWgTvgQ=="
+                  SubTotal="215.52" NoCertificado="0000104210403294048" FormaPago="01"
+                  Sello="XpGru5ERb0yFL848x+8SyxTpF8vKxSNW8tg37f7g9Q=="
+                  Fecha="2018-01-10T11:30:56" Version="3.3" xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+    <cfdi:Emisor Rfc="JUEO790431NT9" Nombre="ESPERANZA" RegimenFiscal="621"></cfdi:Emisor>
+    <cfdi:Receptor Rfc="KRA810856DEF" Nombre="CLARK" UsoCFDI="G03"></cfdi:Receptor>
+    <cfdi:Conceptos>
+        <cfdi:Concepto ClaveProdServ="90101500" Cantidad="1" ClaveUnidad="Q3" Descripcion="CONSUMO DE ALIMENTOS"
+                       ValorUnitario="215.52" Importe="215.52">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="215.52" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000"
+                                   Importe="34.48"></cfdi:Traslado>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+    </cfdi:Conceptos>
+    <cfdi:Impuestos TotalImpuestosTrasladados="34.48">
+        <cfdi:Traslados>
+            <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="34.48"></cfdi:Traslado>
+        </cfdi:Traslados>
+    </cfdi:Impuestos>
+    <cfdi:Complemento>
+        <registrofiscal:CFDIRegistroFiscal
+                Version="1.0" Folio="1808275863001157"
+                xmlns:registrofiscal="http://www.sat.gob.mx/registrofiscal"></registrofiscal:CFDIRegistroFiscal>
+        <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital"
+                                 xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd"
+                                 Version="1.1" UUID="ABC100D8-2620-95E8-4275-BCFA8E1BA708"
+                                 FechaTimbrado="2018-08-10T11:32:56" RfcProvCertif="SAT100799NN9"
+                                 SelloCFD="XpGru5ERb0yhJ8Fv3V64jwDAX8pNenmO2mntJ8SyxTpF8vKxSNW8tg37f7g9Q=="
+                                 NoCertificadoSAT="00001475006403251403"
+                                 SelloSAT="M0/8XpxtQ1Bg9oLNlGhZBAAjHdeCSa0HCKrUFP202SR5LwQ=="/>
+    </cfdi:Complemento>
+</cfdi:Comprobante>
