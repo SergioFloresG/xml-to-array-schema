@@ -21,7 +21,7 @@ class SchemasManager implements IntSchemasManager
 
     public function __construct(\DOMDocument $document)
     {
-        $path = realpath(__DIR__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'cache';
+        $path = realpath(__DIR__) . DIRECTORY_SEPARATOR . 'cache';
         if(!file_exists($path)) mkdir($path,0777, true);
         $this->schemas_directory = realpath($path);
         $this->domxpath = new \DOMXPath($document);
