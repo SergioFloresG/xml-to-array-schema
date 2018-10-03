@@ -12,7 +12,7 @@ use MrGenis\Library\Contracts\SchemasManager as IntSchemasManager;
 
 class SchemasManager implements IntSchemasManager
 {
-    /** @var \DOMXPath  */
+    /** @var \DOMXPath */
     protected $domxpath;
     /** @var string */
     private $schemas_directory;
@@ -22,12 +22,12 @@ class SchemasManager implements IntSchemasManager
     public function __construct(\DOMDocument $document)
     {
         $path = realpath(__DIR__) . DIRECTORY_SEPARATOR . 'cache';
-        if(!file_exists($path)) mkdir($path,0777, true);
+        if (!file_exists($path)) mkdir($path, 0777, true);
         $this->schemas_directory = realpath($path);
         $this->domxpath = new \DOMXPath($document);
         $this->schemas = [$this->hashNs(null) => null];
 
-        $this->addSchemasFromElement($document->documentElement);
+        $this->addElementSchemas($document->documentElement);
     }
 
     /**
@@ -41,7 +41,7 @@ class SchemasManager implements IntSchemasManager
         $hash = $this->hashNs($namespace);
 
         if (!array_key_exists($hash, $this->schemas)) {
-            $this->addSchemasFromElement($element);
+            $this->addElementSchemas($element);
         }
         return $this->schemas[$hash] ?? null;
     }
@@ -52,7 +52,7 @@ class SchemasManager implements IntSchemasManager
      *
      * @param \DOMElement $element
      */
-    public function addSchemasFromElement(\DOMElement $element)
+    public function addElementSchemas(\DOMElement $element)
     {
         $schemas = $this->getElementSchemas($element);
         foreach ($schemas as $ns => $uri) {
@@ -100,13 +100,14 @@ class SchemasManager implements IntSchemasManager
     }
 
     /**
-     * Agrega el nombre de espacio el registro obteniendo su definicion del xsd
+     * Register a schema indicating its namespace and the location of its xsd
      *
-     * @param string      $xmlns nombre de la direccion del nombre de espacio
-     * @param string|null $schema direccion de donde se obtiene la definicion del nombre de espacio
+     * @param string $xmlns
+     * @param string $schema uri to XML Schema Definition
+     *
+     * @return bool
      */
-    private
-    function addSchema($xmlns, $schema)
+    public function addSchema($xmlns, $schema)
     {
         $cache_path = $this->schemas_directory;
         if (!file_exists($cache_path)) mkdir($cache_path, 0777, true);
@@ -115,15 +116,17 @@ class SchemasManager implements IntSchemasManager
         $cache_file = $cache_path . DIRECTORY_SEPARATOR . $hash;
         unset($cache_path);
 
-        if (array_key_exists($hash, $this->schemas)) {
-            return;
+        if (array_key_exists($hash, $this->schemas) && null !== $this->schemas[$hash]) {
+            return true;
         }
 
+        $result = false;
         if (file_exists($cache_file)) {
             $DomSchema = new \DOMDocument();
             $DomSchema->load($cache_file);
             $XPathSchema = new \DOMXPath($DomSchema);
             $this->schemas[$hash] = $XPathSchema;
+            $result = false;
         }
         else {
             try {
@@ -134,11 +137,13 @@ class SchemasManager implements IntSchemasManager
                 $DomSchema->save($cache_file);
                 $XPathSchema = new \DOMXPath($DomSchema);
                 $this->schemas[$hash] = $XPathSchema;
+                $result = true;
             }
             catch (\Exception $e) {
                 $this->schemas[$hash] = null;
             }
         }
+        return $result;
     }
 
     /**
@@ -146,8 +151,7 @@ class SchemasManager implements IntSchemasManager
      *
      * @return string name space uri
      */
-    private
-    function getNamespace(\DOMElement $element)
+    private function getNamespace(\DOMElement $element)
     {
         return $element->lookupNamespaceUri($element->prefix) ?? $element->namespaceURI;
     }
@@ -157,8 +161,7 @@ class SchemasManager implements IntSchemasManager
      *
      * @return string md5
      */
-    private
-    function hashNs($ns)
+    private function hashNs($ns)
     {
         return md5($ns);
     }
