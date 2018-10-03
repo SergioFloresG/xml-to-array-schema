@@ -87,6 +87,19 @@ class XmlToArray implements ToArray
         return array_merge($result, ['_root' => $result_root]);
     }
 
+    /**
+     * Register a schema indicating its namespace and the location of its xsd
+     *
+     * @param string $namespace
+     * @param string $xsdUri uri to XML Schema Definition
+     *
+     * @return bool
+     */
+    public function addSchema($namespace, $xsdUri)
+    {
+        return $this->schemas->addSchema($namespace, $xsdUri);
+    }
+
     protected function convertDomElement(\DOMElement $element)
     {
         $result_arr = $this->convertAttributes($element->attributes);
