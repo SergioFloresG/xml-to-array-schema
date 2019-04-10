@@ -18,6 +18,8 @@ class SchemasManager implements IntSchemasManager
     private $schemas_directory;
     /** @var array (string => \DOMXpath) */
     protected $schemas;
+    /** @var array (preefix => namespace) */
+    protected $prefix;
 
     public function __construct(\DOMDocument $document)
     {
@@ -26,6 +28,7 @@ class SchemasManager implements IntSchemasManager
         $this->schemas_directory = realpath($path);
         $this->domxpath = new \DOMXPath($document);
         $this->schemas = [$this->hashNs(null) => null];
+        $this->prefix = [];
 
         $this->addElementSchemas($document->documentElement);
     }
@@ -102,12 +105,13 @@ class SchemasManager implements IntSchemasManager
     /**
      * Register a schema indicating its namespace and the location of its xsd
      *
-     * @param string $xmlns
+     * @param string $xmlns namespace
      * @param string $schema uri to XML Schema Definition
+     * @param string $prefix xml prefix node
      *
      * @return bool
      */
-    public function addSchema($xmlns, $schema)
+    public function addSchema($xmlns, $schema, $prefix = null)
     {
         $cache_path = $this->schemas_directory;
         if (!file_exists($cache_path)) mkdir($cache_path, 0777, true);
@@ -143,6 +147,11 @@ class SchemasManager implements IntSchemasManager
                 $this->schemas[$hash] = null;
             }
         }
+
+        if($prefix) {
+            $this->prefix[$prefix] = $xmlns;
+        }
+
         return $result;
     }
 
@@ -153,7 +162,13 @@ class SchemasManager implements IntSchemasManager
      */
     private function getNamespace(\DOMElement $element)
     {
-        return $element->lookupNamespaceUri($element->prefix) ?? $element->namespaceURI;
+        $prefix = $this->elementPrefix($element);
+        $namespace = $element->lookupNamespaceUri($prefix) ?? $element->namespaceURI;
+        if(!$namespace && array_key_exists($prefix, $this->prefix)) {
+            $namespace = $this->prefix[$prefix];
+        }
+
+        return $namespace;
     }
 
     /**
@@ -164,5 +179,34 @@ class SchemasManager implements IntSchemasManager
     private function hashNs($ns)
     {
         return md5($ns);
+    }
+
+    /**
+     * @param \DOMElement $element
+     *
+     * @return string
+     */
+    public function elementName(\DOMElement $element){
+        $name = $element->localName;
+        if (preg_match('/:(.+)$/i', $name, $matches) === 1) {
+            $name = $matches[1];
+        }
+        return $name;
+    }
+
+    /**
+     * @param \DOMElement $element
+     *
+     * @return string
+     */
+    public function elementPrefix(\DOMElement $element){
+        $prefix = $element->prefix ?? '';
+        if(empty($prefix)) {
+            $nodekey = $element->localName;
+            if (preg_match('/^(.+):.*$/i', $nodekey, $matches) === 1) {
+                $prefix = $matches[1];
+            }
+        }
+        return $prefix;
     }
 }

@@ -87,6 +87,35 @@ class XmlToArray implements ToArray
         return array_merge($result, ['_root' => $result_root]);
     }
 
+    public function flatAttributes()
+    {
+        $array = $this->toArray();
+        $func = function ($item) use (&$func) {
+            if (is_array($item)) {
+                if (isset($item['_attributes'])) {
+                    $attrs = $item['_attributes'];
+                    unset($item['_attributes']);
+                    $item = array_merge($item, $attrs);
+                }
+                $result = array_map($func, $item);
+            }
+            else {
+                $result = $item;
+            }
+
+            return $result;
+        };
+
+        $root_attributes = [];
+        if(isset($array['_root']['_attributes'])){
+            $root_attributes = $array['_root']['_attributes'];
+            unset($array['_root']['_attributes']);
+        }
+
+        $result = array_map($func, $array);
+        return array_merge($result, $root_attributes);
+    }
+
     /**
      * Register a schema indicating its namespace and the location of its xsd
      *
@@ -95,9 +124,9 @@ class XmlToArray implements ToArray
      *
      * @return bool
      */
-    public function addSchema($namespace, $xsdUri)
+    public function addSchema($namespace, $xsdUri, $prefix = null)
     {
-        return $this->schemas->addSchema($namespace, $xsdUri);
+        return $this->schemas->addSchema($namespace, $xsdUri, $prefix);
     }
 
     protected function convertDomElement(\DOMElement $element)
@@ -108,7 +137,7 @@ class XmlToArray implements ToArray
 
         foreach ($element->childNodes as $node) {
             if ($node instanceof \DOMElement) {
-                $nodekey = $node->{"{$this->nodekey}"};
+                $nodekey = $this->schemas->elementName($node);
 
 
                 // ya se encuentra definido, por lo que se transforma en un array
@@ -140,8 +169,16 @@ class XmlToArray implements ToArray
 
         }
 
+        $result_str = trim($result_str);
+
         if (empty($result_arr)) return $result_str;
-        else return $result_arr;
+        else {
+            if (!empty($result_str)) {
+                $result_arr['_text'] = $result_str;
+            }
+
+            return $result_arr;
+        }
     }
 
     /**
@@ -173,7 +210,7 @@ class XmlToArray implements ToArray
      */
     protected function needMoreThanOne(\DOMElement $node)
     {
-        $tagname = $node->localName;
+        $tagname = $this->schemas->elementName($node);
         $result = false;
         if ($domxpath = $this->schemas->getXPath($node)) {
             $exp = "//xs:element[@name=\"{$tagname}\"] | //xs:complexType[@name=\"{$tagname}\"]";
@@ -191,13 +228,14 @@ class XmlToArray implements ToArray
     }
 
     /**
-     * @param array $arr
+     * @param mixed $arr
      *
      * @return bool <strong>TRUE</strong> cuando el arreglo es asociativo (clave => valor)
      */
-    protected function isAssoc(array $arr)
+    protected function isAssoc($arr)
     {
-        if ([] === $arr) return false;
+        if(!is_array($arr)) return true;
+        else if ([] === $arr) return false;
         return array_keys($arr) !== range(0, count($arr) - 1);
     }
 }
